@@ -1,7 +1,10 @@
-from fastapi import FastAPI 
+# api.py
 
-app = FastAPI(https://github.com/Thrumanshow/HormigasAIS-video-intelligence-checker) 
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse
+
+app = FastAPI()
 
 @app.get("/")
-def root():
-    return {"message": "XOXO backend is alive!"}
+def read_root():
+    return JSONResponse(content={"message": "API running!"}, status_code=200)
