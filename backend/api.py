@@ -1,7 +1,31 @@
- from fastapi import FastAPI 
+name: Python application
 
-app = FastAPI(https://github.com/Thrumanshow/HormigasAIS-video-intelligence-checker) 
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
-@app.get("/")
-def root():
-    return {"message": "XOXO backend is alive!"}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.10.14 (x64)
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10.14'
+          architecture: 'x64'
+
+      - name: Install dependencies from backend/
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+          pip install requests pytest
+
+      - name: Run tests from root
+        run: |
+          pytest tests/
