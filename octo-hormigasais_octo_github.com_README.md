@@ -1,4 +1,4 @@
-## ⚙️ Ejecución local
+o## ⚙️ Ejecución local
 
 ```bash
 git clone https://github.com/Thrumanshow/HormigasAIS-video-intelligence-checker.git
