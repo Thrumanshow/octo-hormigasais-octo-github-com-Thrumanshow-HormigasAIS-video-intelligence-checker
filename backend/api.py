@@ -1,0 +1,7 @@
+ from fastapi import FastAPI 
+
+app = FastAPI(https://github.com/Thrumanshow/HormigasAIS-video-intelligence-checker) 
+
+@app.get("/")
+def root():
+    return {"message": "XOXO backend is alive!"}
